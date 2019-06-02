@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Detektor App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link href="https://fonts.googleapis.com/css?family=Allerta|Montserrat" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--build:css css/styles.min.css -->
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <!--endbuild-->
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+  <header class="headerppal">
+    <figure class="header-logotipo">
+      <img src="imagenes/logo.png" alt="Blog Logotipo">
+    </figure>
+      <a id="btnInicioSesion" class="modal-trigger waves-effect waves-light btn btnPpal">Iniciar Sesión</a>
+      <figure class="header-avatar">
+        <img id="avatar" src="imagenes/usuario.png" alt="Avatar">
+      </figure>
+  </header>
+
+  <!-- <nav class="menu">
+    <ul>
+      <li><a id="btnTodoPost">Todos los Posts</a></li>
+      <li><a id="btnMisPost">Mis Posts</a></li>
+      <li><a id="btnModalPost">Realiza un Post</a></li>
+      <li><a href="index.html#footer">Contactenos</a></li>
+    </ul>
+  </nav> -->
+  
+  <h4 id="tituloPost" class="titulo-posts">Informe Estadistico</h4>
+  <section class="posts" id="posts">        
+  </section>
+  
+  <!-- Esto es el footer -->
+  <!-- <footer class="footer" id="footer">
+    <div class="contenedor-footer">
+
+      <div class="redesSociales">
+
+        <p class="realizadopor"><strong>Developed by Jose Padron</strong></p>
+        <p class="realizadoclase"><strong>Frontend Developer</strong></p>
+        <div class="logos-redes">
+          <a class="logo-facebook" target="_blank" href="https://www.facebook.com/padronjosef"></a>
+          <a class="logo-twitter" target="_blank" href="https://twitter.com/padronjosef"></a>
+          <a class="logo-github" target="_blank" href="https://github.com/padronjosef"></a>
+        </div>
+      </div>
+
+      <div class="formulario-contactenos">
+        <div class="form-col1">
+          <div class="input-field">
+            <input id="nombreContacto" type="text" required />
+            <label for="nombreContacto">Nombres:</label>
+          </div>
+          <div class="input-field">
+            <input id="emailContacto" type="email" required />
+            <label for="emailContacto">E-mail</label>
+          </div>
+          <div class="tipos-comentarios">
+            <input id="comentarioTipo" type="checkbox" name="Comentarios" value="comentarios" checked />
+            <label for="comentarioTipo"> Comentarios </label>
+
+            <input id="reclamoTipo" type="checkbox" name="reclamos" value="Reclamos" />
+            <label for="reclamoTipo"> Reclamos </label>
+
+            <input id="mejoraTipo" type="checkbox" name="Mejora" value="mejora" />
+            <label for="mejoraTipo"> Mejora </label>
+            
+            <input id="otroTipo" type="checkbox" name="Otro" value="otro" />
+            <label for="otroTipo"> Otro </label>
+          </div>
+        </div>
+        <div class="form-col2">
+          <label for="comentariosContacto">Comentarios:</label>
+          <textarea id="comentariosContacto" placeholder="Escribe tu comentario" cols="30" rows="6" required></textarea>
+          <input type="submit" id="btncontactForm" class="waves-effect waves-light btn btnPpal" value="Enviar" />
+        </div>
+      </div>
+      
+  </footer> -->
+
+  <!-- Modal de Inicio de Sesión -->
+  <div id="modalSesion" class="modal modal-registro">
+      <div class="modal-content">
+        <div class="row">
+          <div class="col s12 m6 registro-bienvenida">
+            <h4>Informe Estadistico</h4>
+            <div class="registro-bienvenida-texto">
+              Los valores generados son aproximados y estan sujetos a variaciones de acuerdo 
+              a la calidad de la señal GPS, que en ocaciones puede ser inexacta o fallar.
+            </div>
+          </div>
+          <div class="col s12 m6 registro-formulario">
+            <div class="input-field col s12">
+              <input id="desde" type="text" class="datepicker">
+              <label for="fecha">Desde</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="hasta" type="text" class="datepicker">
+              <label for="fecha">Hasta</label>
+            </div>
+            <select class="browser-default">
+              <option value="" disabled selected>Tipo de consulta</option>
+              <option value="1">Dia completo</option>
+              <option value="2">Franja horaria</option>
+              <option value="3">Intervalo continuo</option>
+            </select>
+          <!-- <div class="lbl-ingresar-redes">
+            <span>INGRESA CON:</span>
+          </div>
+          <div class="registro-iconos-redes">                                          
+            <a id="authFB" class="logo-facebook" href="#"></a>
+            <a id="authGoogle" class="logo-google" href="#"></a>
+            <a id="authTwitter" class="logo-twitter" href="#"></a>
+          </div> -->
+            <div class="col s12 m12 div-btnRegistrarse">
+              <a id="btnRegistrarse" class="btn waves-effect waves-light">Siguiente<i class="material-icons right">navigate_next</i></a>                        
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Modal de actividades -->
+  <div id="modalRegistro" class="modal modal-registro">
+    <div class="modal-content">
+      <div class="row">
+        <div class="col s12 m6 registro-bienvenida">
+          <h4>Informe Estadistico</h4>
+          <div class="registro-bienvenida-texto">
+            Los valores generados son aproximados y estan sujetos a variaciones de acuerdo 
+            a la calidad de la señal GPS, que en ocaciones puede ser inexacta o fallar.
+          </div>
+
+          <div class="div-btnInicioSesion">
+            <a id="btnIniciarSesion" class="btn waves-effect waves-light">Atras<i class="material-icons right">navigate_before</i></a>
+          </div>  
+        </div>
+        <div class="col s12 m6 registro-formulario">
+
+          <div class="actividades" id="actMotor">
+            <input id="motor" type="checkbox" name="motor" value="motor" />
+            <label for="motor"> Actividad del motor </label>
+            <div id="actMotor-todas"></div>
+          </div>
+
+          <div class="actividades" id="actPuertas">
+            <input id="puertas" type="checkbox" name="puertas" value="puertas" />
+            <label for="puertas"> Actividad de puertas </label>
+            <div id="actPuertas-todas"></div>
+          </div>
+
+          <div class="actividades" id="actVelocidades">
+            <input id="velocidades" type="checkbox" name="velocidades" value="velocidades" />
+            <label for="velocidades"> Monitoreo de velocidades </label>
+            <div id="actVelocidades-todas"></div>
+          </div>
+
+          <div class="actividades" id="actDistancias">
+            <input id="distancias" type="checkbox" name="distancias" value="distancias" />
+            <label for="distancias"> Monitoreo de distancias </label>
+            <div id="actDistancias-todas"></div>
+          </div>
+
+          <div class="actividades" id="actSospechosas">
+            <input id="sospechosas" type="checkbox" name="sospechosas" value="sospechosas" />
+            <label for="sospechosas"> Actividades sospechosas </label>
+            <div id="actSospechosas-todas"></div>
+          </div>
+
+          <div class="col s12 m12 div-btnRegistrarse">
+            <a id="btnRegistroEmail" class="btn waves-effect waves-light">Generar informe<i class="material-icons right">show_chart</i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de graficos -->
+  <div id="modalrestablecer" class="modal modal-registro">
+    <div class="modal-content">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m6 registro-bienvenida">
+            <h4>Olvide mi contraseña</h4>
+            <div class="registro-bienvenida-texto">
+              Ingresa tu E-mail para restablecer la contraseña.
+            </div>
+          </div>
+          <div class="col s12 m6 registro-formulario">
+            <div class="input-field">                            
+              <input id="emailRestablecer" type="email" required/>
+              <label for="emailRestablecer">E-mail:</label>
+            </div>   
+            <div class="col s12 m12 div-btnRegistrarse">
+              <a id="btnRestablecer" class="btn waves-effect waves-light">Restablecer<i class="material-icons left">mail_outline</i></a>                        
+            </div>
+          </div>
+          <div class="col s12 m12 div-btnRegistrarse">
+            <a id="btnRegresar" class="btn waves-effect waves-light">Iniciar Sesión<i class="material-icons right">send</i></a>
+          </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal Post -->
+  <div id="modalPost" class="modal modal-registro">
+    <div class="modal-content">
+      <div class="container">
+          <div class="row">
+            <div class="col s12 m6 registro-bienvenida">
+              <h4>Realiza un Post</h4>
+              <div class="registro-bienvenida-texto">
+                Comparte un video interesante para la comunidad
+              </div>
+              <span>Comparte ahora</span>
+            </div>
+            <div class="col s12 m6 registro-formulario">
+              <div class="input-field">
+                <input id="tituloNewPost" type="text" maxlength="30" data-length="30" required />
+                <label for="tituloNewPost">Titulo:</label>
+              </div>
+              <div class="input-field">
+                <textarea id="descripcionNewPost" type="text"  maxlength="140" data-length="140" class="materialize-textarea" required></textarea>
+                <label for="descripcionNewPost">Descripción:</label>
+              </div>
+              <div class="input-field">
+                <input id="linkVideoNewPost" type="text" required />
+                <label for="linkVideoNewPost">Enlace del video:</label>
+              </div>
+              <div class="progress-panel">
+                <label for="btnUploadFile">Imagen:</label>
+                <input type="file" value="upload" id="btnUploadFile" />
+                <div class="progress">
+                  <div class="determinate" style="width: 0%"></div>
+                </div>
+              </div>
+              <div class="div-btnInicioSesion">
+                <a id="btnRegistroPost" class="btn waves-effect waves-light">Crear Post<i class="material-icons left">create</i></a>
+              </div>                      
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+
+<!-- Firebase App is always required and must be first -->
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-messaging.js"></script>
+
+<!--build:js js/main.min.js -->
+<script type="text/javascript" src="js/config/ConfigFirebase.js"></script>
+<script type="text/javascript" src="js/util/util.js"></script>
+<script type="text/javascript" src="js/post/post.js"></script>
+<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="js/auth/autenticacion.js"></script>
+<script type="text/javascript" src="js/auth/authController.js"></script>
+<script type="text/javascript" src="js/post/postController.js"></script>
+<script type="text/javascript" src="js/contact/contactForm.js"></script>
+<script type="text/javascript" src="js/actividades/actividades.js"></script>
+
+<!-- endbuild -->
+</html>
