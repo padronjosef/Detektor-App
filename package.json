@@ -21,6 +21,7 @@
   "homepage": "https://github.com/jggomez/blogvideos-ucc#readme",
   "devDependencies": {
     "browser-sync": "^2.18.8",
+    "chart.js": "^2.8.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-cache": "^0.4.6",

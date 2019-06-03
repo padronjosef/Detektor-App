@@ -23,178 +23,45 @@ class Post {
       })
   }
 
-
   consultarTodosPost() {
     this.db
-      .collection('posts')
-      .orderBy('fecha', 'asc')
+      .collection('actividades')
       .orderBy('titulo', 'asc')
       .onSnapshot(querySnapshot => {
         $('#posts').empty()
-        if (querySnapshot.empty) {
-          $('#posts').append(this.obtenerTemplatePostVacio)
-        } else {
-          querySnapshot.forEach(post => {
+          querySnapshot.forEach(actividades => {
             let postHtml = this.obtenerPostTemplate(
-              post.data().autor,
-              post.data().titulo,
-              post.data().descripcion,
-              post.data().videoLink,
-              post.data().imagenLink,
-              Utilidad.obtenerFecha(post.data().fecha.toDate())
+              actividades.data().titulo,
+              actividades.data().actividad1,
+              actividades.data().actividad2,
+              actividades.data().valor1,
+              actividades.data().valor2,
             )
             $('#posts').append(postHtml)
-          });
-        }
-      })
-  }
-
-  consultarPostxUsuario(emailUser) {
-    this.db
-      .collection('posts')
-      .orderBy('fecha', 'asc')
-      .where('autor', '==', emailUser)
-      .onSnapshot(querySnapshot => {
-        $('#posts').empty()
-        if (querySnapshot.empty) {
-          $('#posts').append(this.obtenerTemplatePostVacio)
-        } else {
-          querySnapshot.forEach(post => {
-            let postHtml = this.obtenerPostTemplate(
-              post.data().autor,
-              post.data().titulo,
-              post.data().descripcion,
-              post.data().videoLink,
-              post.data().imagenLink,
-              Utilidad.obtenerFecha(post.data().fecha.toDate())
-            )
-            $('#posts').append(postHtml)
-          });
-        }
-      })
-  }
-
-  obtenerTemplatePostVacio() {
-    return `<article class="post">
-      <div class="post-titulo">
-        <h5>Crea el primer Post a la comunidad</h5>
-      </div>
-      <div class="post-calificacion">
-        <a class="post-estrellita-llena" href="*"></a>
-        <a class="post-estrellita-llena" href="*"></a>
-        <a class="post-estrellita-llena" href="*"></a>
-        <a class="post-estrellita-llena" href="*"></a>
-        <a class="post-estrellita-vacia" href="*"></a>
-      </div>
-      <div class="post-video">
-        <iframe type="text/html" width="500" height="385" src='https://www.youtube.com/embed/bTSWzddyL7E?ecver=2'
-            frameborder="0"></iframe>
-        </figure>
-      </div>
-      <div class="post-videolink">
-        Video
-      </div>
-      <div class="post-descripcion">
-        <p>Crea el primer Post a la comunidad</p>
-      </div>
-      <div class="post-footer container">         
-      </div>
-    </article>`
-  }
-
-  subirImagenPost(file, uid) {
-    const refStorage = firebase.storage().ref(`imgsPosts/${uid}/${file.name}`)
-    const task = refStorage.put(file)
-
-    task.on(
-      'state_changed',
-      snapshot => {
-        const porcentaje = snapshot.bytesTransferred / snapshot.totalBytes * 100
-        $('.determinate').attr('style', `width: ${porcentaje}%`)
-      },
-      err => {
-        Materialize.toast(`Error subiendo archivo = > ${error.message}`, 4000)
-      },
-      () => {
-        task.snapshot.ref
-          .getDownloadURL()
-          .then(url => {
-            console.log(url)
-            sessionStorage.setItem('imgNewPost', url)
-          }).catch(err => {
-            Materialize.toast(`Error obteniendo downloadURL = > ${error}`, 4000)
           })
-      }
-    )
+      })
   }
 
   obtenerPostTemplate(
-    autor,
     titulo,
-    descripcion,
-    videoLink,
-    imagenLink,
-    fecha
+    actividad1,
+    actividad2,
+    valor1,
+    valor2
   ) {
-    if (imagenLink) {
-      return `<article class="post">
-        <div class="post-titulo">
-          <h5>${titulo}</h5>
-        </div>
-        <div class="post-video">                
-          <img id="imgVideo" src='${imagenLink}' class="post-imagen-video" alt="Imagen Video">     
-        </div>
-        <div class="post-videolink">
-          <a href="${videoLink}" target="blank">Ver Video</a>                            
-        </div>
-        <div class="post-descripcion">
-          <p>${descripcion}</p>
-        </div>
-        <div class="post-footer container">
-          <div class="row">
-            <div class="col m6">
-              Fecha: ${fecha}
-            </div>
-            <div class="col m6">
-              Autor: ${autor}
-            </div>        
-          </div>
-        </div>
-      </article>`
-    }
-
-    return`<article class="post">
-        <div class="post-titulo">
-          <h5>${titulo}</h5>
-        </div>
-        <div class="post-calificacion">
-          <a class="post-estrellita-llena" href="*"></a>
-          <a class="post-estrellita-llena" href="*"></a>
-          <a class="post-estrellita-llena" href="*"></a>
-          <a class="post-estrellita-llena" href="*"></a>
-          <a class="post-estrellita-vacia" href="*"></a>
-        </div>
-        <div class="post-video">
-          <iframe type="text/html" width="500" height="385" src='${videoLink}'
-            frameborder="0"></iframe>
-          </figure>
-        </div>
-        <div class="post-videolink">
-          Video
-        </div>
-        <div class="post-descripcion">
-          <p>${descripcion}</p>
-        </div>
-        <div class="post-footer container">
-          <div class="row">
-            <div class="col m6">
-              Fecha: ${fecha}
-            </div>
-            <div class="col m6">
-              Autor: ${autor}
-            </div>        
-          </div>
-        </div>
-    </article>`
+    var gMotorhtml = document.getElementById('prueba').getContext('2d');
+    var chart = new Chart(gMotorhtml, {
+      type: 'pie',
+      options: options,
+      data: {
+        labels: [actividad1, actividad2],
+        datasets: [{
+          backgroundColor: ["#D30B19", "#6C0214"],
+          label: titulo,
+          data: [valor1, valor2]
+        }]
+      }
+    })
   }
 }
+
