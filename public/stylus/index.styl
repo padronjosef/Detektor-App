@@ -1,6 +1,6 @@
 colorPrimario = #141414
+colorSecundario = #DE1B25
 colorBlanco = #EAEAEA
-colorAzulAguaMarina = #126798
 colorAccent = #50A040
 colorGris = #8F9491
 
@@ -74,15 +74,14 @@ colorGris = #8F9491
     color colorBlanco !important
 
 .btnPpal
-	background colorAccent !important 
+	background colorSecundario !important
 	font-family 'Montserrat', sans-serif
 	font-weight bold		
 	transition .5s
-			
+	border-radius 20px
 	&:hover
-		background colorAccent
-		color white
-		font-size 17px
+		background colorPrimario  !important
+		border 1px solid colorSecundario
 
 body
 	font-family: 'Allerta', sans-serif;
@@ -95,18 +94,6 @@ body
 	padding-bottom 30px
 	text-align center
 	
-	.titulo
-		font-size 40px
-		font-family 'Montserrat', sans-serif
-		margin-top 30px
-		margin-bottom 0
-		
-	.titulo-a		
-		color colorBlanco
-		font-size 20px
-		padding-top 5px		
-		padding-bottom 15px
-	
 	.header-logotipo
 		margin-right 5em
 		margin-left 50px
@@ -115,22 +102,8 @@ body
 		img	
 			height 40px
 			transition .6s
-			
 			&:hover
-				transform scale(1.2)
-		
-	.header-avatar
-		display none
-		float right
-		margin-top -200px
-		margin-right 50px
-		
-		img
-			border-radius 60%
-			height 80px
-			width 80px
-			transition .6s
-			transform translateY(100px)
+				transform scale(1.05)
 
 .modal-registro
 	width 80% !important
@@ -152,18 +125,12 @@ body
 		text-align left
 
 	span		
-		color colorAccent
+		color red
 		font-size 1.2em
 		font-weight bold
-    
-
-.more-info
-  label
-    color red
 
 .registro-formulario
 	border-left 0.3em solid colorPrimario
-
 	div
 		margin 0
 		div
@@ -179,68 +146,29 @@ body
 	a
 		margin-top 2em		
 		text-align center
-		width 80% !important
-
-	.div-btnInicioSesion
-		text-align center
-
-		a
-			background colorPrimario !important
-
-	.lbl-ingresar-redes
-		color colorPrimario		
-		font-weight bold
-		padding-top 1em
-		text-align center		
-		
-	.registro-iconos-redes
-	
-		background colorBlanco !important
-
-		text-align center
-		
-		.logo-facebook		
-						
-			&:before
-								
-				color colorPrimario					
-				content: "\f101"
-				font-size 40px
-				font-family "Flaticon"
-
-		.logo-google	
-
-			margin-left 1em	
-						
-			&:before
-								
-				color colorPrimario					
-				content: "\f2b3"
-				font-size 45px
-				font-family "googleicon"
-							
-		.logo-twitter
-			
-			margin-left 1em
-						
-			&:before				
-				color colorPrimario					
-				content: "\f102"
-				font-size 40px
-				font-family "Flaticon"			
+		width 80% !important		
 
 .div-btnRegistrarse
 	text-align center
 	margin-top 2em
 	margin-bottom 0em
-
 	a
 		background colorPrimario !important
-	
-.titulo-posts
+		border-radius 20px
+.div-btnAtras
+	text-align center
+	margin-bottom 0em
+	a
+		margin-top 1em
+		background colorSecundario !important
+		border-radius 20px
+
+.titulo
 	color colorPrimario
 	font-weight bold
 	text-align center
+
+
 
 @media screen and (min-width: 768px)
 
@@ -265,7 +193,7 @@ body
 			font-size 2em
 		
 		.registro-bienvenida-texto		
-			margin-bottom 2em
+			margin-bottom 0
 			font-size 1.5em
 		
 		span		

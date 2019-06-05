@@ -50,15 +50,15 @@
   color: #eaeaea !important;
 }
 .btnPpal {
-  background: #50a040 !important;
+  background: #de1b25 !important;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   transition: 0.5s;
+  border-radius: 20px;
 }
 .btnPpal:hover {
-  background: #50a040;
-  color: #fff;
-  font-size: 17px;
+  background: #141414 !important;
+  border: 1px solid #de1b25;
 }
 body {
   font-family: 'Allerta', sans-serif;
@@ -71,18 +71,6 @@ body {
   padding-bottom: 30px;
   text-align: center;
 }
-.headerppal .titulo {
-  font-size: 40px;
-  font-family: 'Montserrat', sans-serif;
-  margin-top: 30px;
-  margin-bottom: 0;
-}
-.headerppal .titulo-a {
-  color: #eaeaea;
-  font-size: 20px;
-  padding-top: 5px;
-  padding-bottom: 15px;
-}
 .headerppal .header-logotipo {
   margin-right: 5em;
   margin-left: 50px;
@@ -93,20 +81,7 @@ body {
   transition: 0.6s;
 }
 .headerppal .header-logotipo img:hover {
-  transform: scale(1.2);
-}
-.headerppal .header-avatar {
-  display: none;
-  float: right;
-  margin-top: -200px;
-  margin-right: 50px;
-}
-.headerppal .header-avatar img {
-  border-radius: 60%;
-  height: 80px;
-  width: 80px;
-  transition: 0.6s;
-  transform: translateY(100px);
+  transform: scale(1.05);
 }
 .modal-registro {
   width: 80% !important;
@@ -128,12 +103,9 @@ body {
   text-align: left;
 }
 .registro-bienvenida span {
-  color: #50a040;
+  color: #f00;
   font-size: 1.2em;
   font-weight: bold;
-}
-.more-info label {
-  color: #f00;
 }
 .registro-formulario {
   border-left: 0.3em solid #141414;
@@ -157,46 +129,6 @@ body {
   text-align: center;
   width: 80% !important;
 }
-.registro-formulario .div-btnInicioSesion {
-  text-align: center;
-}
-.registro-formulario .div-btnInicioSesion a {
-  background: #141414 !important;
-}
-.registro-formulario .lbl-ingresar-redes {
-  color: #141414;
-  font-weight: bold;
-  padding-top: 1em;
-  text-align: center;
-}
-.registro-formulario .registro-iconos-redes {
-  background: #eaeaea !important;
-  text-align: center;
-}
-.registro-formulario .registro-iconos-redes .logo-facebook:before {
-  color: #141414;
-  content: "\f101";
-  font-size: 40px;
-  font-family: "Flaticon";
-}
-.registro-formulario .registro-iconos-redes .logo-google {
-  margin-left: 1em;
-}
-.registro-formulario .registro-iconos-redes .logo-google:before {
-  color: #141414;
-  content: "\f2b3";
-  font-size: 45px;
-  font-family: "googleicon";
-}
-.registro-formulario .registro-iconos-redes .logo-twitter {
-  margin-left: 1em;
-}
-.registro-formulario .registro-iconos-redes .logo-twitter:before {
-  color: #141414;
-  content: "\f102";
-  font-size: 40px;
-  font-family: "Flaticon";
-}
 .div-btnRegistrarse {
   text-align: center;
   margin-top: 2em;
@@ -204,8 +136,18 @@ body {
 }
 .div-btnRegistrarse a {
   background: #141414 !important;
+  border-radius: 20px;
 }
-.titulo-posts {
+.div-btnAtras {
+  text-align: center;
+  margin-bottom: 0em;
+}
+.div-btnAtras a {
+  margin-top: 1em;
+  background: #de1b25 !important;
+  border-radius: 20px;
+}
+.titulo {
   color: #141414;
   font-weight: bold;
   text-align: center;
@@ -230,7 +172,7 @@ body {
     font-size: 2em;
   }
   .registro-bienvenida .registro-bienvenida-texto {
-    margin-bottom: 2em;
+    margin-bottom: 0;
     font-size: 1.5em;
   }
   .registro-bienvenida span {

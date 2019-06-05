@@ -19,80 +19,35 @@
 <body>
   <header class="headerppal">
     <figure class="header-logotipo">
-      <img src="imagenes/logo.png" alt="Blog Logotipo">
+      <a href="https://detektor.com.co/">
+        <img src="imagenes/logo.png" alt="Blog Logotipo">
+      </a>
     </figure>
-      <a id="btnInicioSesion" class="modal-trigger waves-effect waves-light btn btnPpal">Iniciar Sesión</a>
-      <figure class="header-avatar">
-        <img id="avatar" src="imagenes/usuario.png" alt="Avatar">
-      </figure>
+    <a id="btnInicioSesion" class="waves-effect waves-light btn btnPpal">Mi placa</a>
   </header>
   
-  <h4 id="tituloPost" class="titulo-posts">Informe Estadistico</h4>
-  <section class="posts" id="posts">
-  </section>
+  <h4 class="titulo">Informe Estadistico</h4>
 
   <!-- graficas -->
   <div class="graficas row">
       <div class="col s5">
-        <canvas id="prueba"></canvas>
-        <div class="" id="gDistanciashtml-container"></div>
+        <div id="gTortahtml-container"></div>
+        <div id="gDistanciashtml-container"></div>
       </div>
 
       <div class="col s7" id="todobonito">
-        <div class="" id="gMotorhtml-container"></div>
+        <div id="gMotorhtml-container"></div>
 
-        <div class="" id="gPuertashtml-container"></div>
+        <div id="gPuertashtml-container"></div>
 
-        <div class="" id="gVelocidadesshtml-container"></div>
+        <div id="gVelocidadesshtml-container"></div>
 
-        <div class="" id="gsospechosashtml-container"></div>
+        <div id="gsospechosashtml-container"></div>
     </div>
   </div>
 
   <!-- Modal de Inicio de Sesión -->
   <div id="modalSesion" class="modal modal-registro">
-      <div class="modal-content">
-        <div class="row">
-          <div class="col s12 m6 registro-bienvenida">
-            <h4>Informe Estadistico</h4>
-            <div class="registro-bienvenida-texto">
-              Los valores generados son aproximados y estan sujetos a variaciones de acuerdo 
-              a la calidad de la señal GPS, que en ocaciones puede ser inexacta o fallar.
-            </div>
-          </div>
-          <div class="col s12 m6 registro-formulario">
-            <div class="input-field col s12">
-              <input id="desde" type="text" class="datepicker">
-              <label for="fecha">Desde</label>
-            </div>
-            <div class="input-field col s12">
-              <input id="hasta" type="text" class="datepicker">
-              <label for="fecha">Hasta</label>
-            </div>
-            <select class="browser-default">
-              <option value="" disabled selected>Tipo de consulta</option>
-              <option value="1">Dia completo</option>
-              <option value="2">Franja horaria</option>
-              <option value="3">Intervalo continuo</option>
-            </select>
-          <!-- <div class="lbl-ingresar-redes">
-            <span>INGRESA CON:</span>
-          </div>
-          <div class="registro-iconos-redes">                                          
-            <a id="authFB" class="logo-facebook" href="#"></a>
-            <a id="authGoogle" class="logo-google" href="#"></a>
-            <a id="authTwitter" class="logo-twitter" href="#"></a>
-          </div> -->
-            <div class="col s12 m12 div-btnRegistrarse">
-              <a id="btnRegistrarse" class="btn waves-effect waves-light">Siguiente<i class="material-icons right">navigate_next</i></a>                        
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  <!-- Modal de actividades -->
-  <div id="modalRegistro" class="modal modal-registro">
     <div class="modal-content">
       <div class="row">
         <div class="col s12 m6 registro-bienvenida">
@@ -101,120 +56,99 @@
             Los valores generados son aproximados y estan sujetos a variaciones de acuerdo 
             a la calidad de la señal GPS, que en ocaciones puede ser inexacta o fallar.
           </div>
-
-          <div class="div-btnInicioSesion">
-            <a id="btnIniciarSesion" class="btn waves-effect waves-light">Atras<i class="material-icons right">navigate_before</i></a>
-          </div>  
         </div>
         <div class="col s12 m6 registro-formulario">
-
-          <div class="actividades" id="actMotor">
-            <input id="motor" type="checkbox" name="motor" value="motor" />
-            <label for="motor"> Actividad del motor </label>
-            <div id="actMotor-todas"></div>
+          <div class="input-field col s12">
+            <span>Desde</span>
+            <input id="desde" type="date">
           </div>
 
-          <div class="actividades" id="actPuertas">
-            <input id="puertas" type="checkbox" name="puertas" value="puertas" />
-            <label for="puertas"> Actividad de puertas </label>
-            <div id="actPuertas-todas"></div>
+          <div class="input-field col s12">
+            <span>Desde</span>
+            <input id="hasta" type="date">
           </div>
 
-          <div class="actividades" id="actVelocidades">
-            <input id="velocidades" type="checkbox" name="velocidades" value="velocidades" />
-            <label for="velocidades"> Monitoreo de velocidades </label>
-            <div id="actVelocidades-todas"></div>
-          </div>
-
-          <div class="actividades" id="actDistancias">
-            <input id="distancias" type="checkbox" name="distancias" value="distancias" />
-            <label for="distancias"> Monitoreo de distancias </label>
-            <div id="actDistancias-todas"></div>
-          </div>
-
-          <div class="actividades" id="actSospechosas">
-            <input id="sospechosas" type="checkbox" name="sospechosas" value="sospechosas" />
-            <label for="sospechosas"> Actividades sospechosas </label>
-            <div id="actSospechosas-todas"></div>
-          </div>
+          <select class="browser-default">
+            <option disabled selected>Tipo de consulta</option>
+            <option value="1">Dia completo</option>
+            <option value="2">Franja horaria</option>
+            <option value="3">Intervalo continuo</option>
+          </select>
 
           <div class="col s12 m12 div-btnRegistrarse">
-            <a id="btnRegistroEmail" class="btn waves-effect waves-light">Generar informe<i class="material-icons right">show_chart</i></a>
+            <a id="btnSiguiente" class="btn waves-effect waves-light">Siguiente<i class="material-icons right">navigate_next</i></a>                        
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Modal Post -->
-  <div id="modalPost" class="modal modal-registro">
+  <!-- Modal de actividades -->
+  <div id="modalActividades" class="modal modal-registro">
     <div class="modal-content">
-      <div class="container">
-          <div class="row">
-            <div class="col s12 m6 registro-bienvenida">
-              <h4>Realiza un Post</h4>
-              <div class="registro-bienvenida-texto">
-                Comparte un video interesante para la comunidad
-              </div>
-              <span>Comparte ahora</span>
-            </div>
-            <div class="col s12 m6 registro-formulario">
-              <div class="input-field">
-                <input id="tituloNewPost" type="text" maxlength="30" data-length="30" required />
-                <label for="tituloNewPost">Titulo:</label>
-              </div>
-              <div class="input-field">
-                <textarea id="descripcionNewPost" type="text"  maxlength="140" data-length="140" class="materialize-textarea" required></textarea>
-                <label for="descripcionNewPost">Descripción:</label>
-              </div>
-              <div class="input-field">
-                <input id="linkVideoNewPost" type="text" required />
-                <label for="linkVideoNewPost">Enlace del video:</label>
-              </div>
-              <div class="progress-panel">
-                <label for="btnUploadFile">Imagen:</label>
-                <input type="file" value="upload" id="btnUploadFile" />
-                <div class="progress">
-                  <div class="determinate" style="width: 0%"></div>
-                </div>
-              </div>
-              <div class="div-btnInicioSesion">
-                <a id="btnRegistroPost" class="btn waves-effect waves-light">Crear Post<i class="material-icons left">create</i></a>
-              </div>                      
-            </div>
+      <div class="row">
+        <div class="col s12 m6 registro-bienvenida">
+          <h4>Informe Estadistico</h4>
+          <div class="registro-bienvenida-texto">
+            Los valores generados son aproximados y estan sujetos a variaciones de acuerdo 
+            a la calidad de la señal GPS, que en ocaciones puede ser inexacta o fallar.
+          </div>
+          <div class="div-btnAtras">
+            <a id="btnAtras" class="btn waves-effect waves-light"> Atras <i class="material-icons left">navigate_before</i></a>
           </div>
         </div>
+        <div class="col s12 m6 registro-formulario">
+
+          <div class="actividades" id="actDistancias">
+            <input id="distancias" type="checkbox" name="distancias" value="1" />
+            <label for="distancias"> Monitoreo de distancias </label>
+            <div id="actDistancias-todas"></div>
+          </div>
+
+          <div class="actividades" id="actMotor">
+            <input id="motor" type="checkbox" name="motor" value="2" />
+            <label for="motor"> Actividad del motor </label>
+            <div id="actMotor-todas"></div>
+          </div>
+
+          <div class="actividades" id="actPuertas">
+            <input id="puertas" type="checkbox" name="puertas" value="3" />
+            <label for="puertas"> Actividad de puertas </label>
+            <div id="actPuertas-todas"></div>
+          </div>
+
+          <div class="actividades" id="actSospechosas">
+            <input id="sospechosas" type="checkbox" name="sospechosas" value="5" />
+            <label for="sospechosas"> Actividades sospechosas </label>
+            <div id="actSospechosas-todas"></div>
+          </div>
+
+          <div class="actividades" id="actVelocidades">
+            <input id="velocidades" type="checkbox" name="velocidades" value="4" />
+            <label for="velocidades"> Monitoreo de velocidades </label>
+            <div id="actVelocidades-todas"></div>
+          </div>
+
+          <div class="col s12 m12 div-btnRegistrarse">
+            <a id="btnGenerarInforme" class="btn waves-effect waves-light">Generar informe<i class="material-icons right">show_chart</i></a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
 </body>
-<script type="text/javascript" src="../node_modules/chart.js/dist/Chart.js"></script>
+
+<!-- Jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
 
-<!-- Firebase App is always required and must be first -->
-<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-messaging.js"></script>
-
 <!--build:js js/main.min.js -->
-<script type="text/javascript" src="js/config/ConfigFirebase.js"></script>
-<script type="text/javascript" src="js/util/util.js"></script>
-<script type="text/javascript" src="js/post/post.js"></script>
-<!-- <script type="text/javascript" src="js/post/postController.js"></script> -->
-<script type="text/javascript" src="js/general.js"></script>
-<script type="text/javascript" src="js/auth/autenticacion.js"></script>
-<script type="text/javascript" src="js/auth/authController.js"></script>
-<script type="text/javascript" src="js/contact/contactForm.js"></script>
-<script type="text/javascript" src="js/actividades/actividades.js"></script>
+<script type="text/javascript" src="js/chartjs/chart.js/dist/Chart.js"></script>
 
-<!-- endbuild -->
+<script type="text/javascript" src="js/controller/modalsController.js"></script>
+<script type="text/javascript" src="js/graficas/checkboxes.js"></script>
+<script type="text/javascript" src="js/graficas/graficas.js"></script>
+
 </html>
